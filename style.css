@@ -1,0 +1,25 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bookcase {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat (2, 1fr);
+  background-color: lightgray;
+  border: 2px solid grey;
+  border-radius: 5px;
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 8px;
+  padding: 6px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
