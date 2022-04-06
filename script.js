@@ -1,5 +1,8 @@
 // Define DOM elements to manipulate webpage
 const bookcase = document.querySelector("div.bookcase");
+const buttonAdd = document.querySelector("#buttonAddBooks");
+
+buttonAdd.addEventListener("click", addBookToLibrary);
 
 const book1 = new Book("Harry Potter", "J.K. Rowling", "233", true);
 const book2 = new Book("The Principles of Object-Oriented JavaScript", "Nicolas C. Zakas", 122, false);
@@ -28,7 +31,8 @@ function addBookToLibrary() {
   const pages = prompt("How many pages are in the book?", "# of pages");
   const read = prompt("Have you read the book?", "true/false");
   const book = new Book(title, author, pages, read);
-  myLibrary.push(book);
+  myLibrary.unshift(book);
+  writeBookToPage(myLibrary[0]);
 }
 
 
@@ -63,6 +67,6 @@ function writeBookToPage(book) {
   bookElement.appendChild(pages);
   bookElement.appendChild(readStatus);
 
-  // append completed book to bookcase
-  bookcase.appendChild(bookElement);
+  // Add book to bookcase after buttonAdd, but before any existing books
+  bookcase.insertBefore(bookElement, buttonAdd.nextSibling);
 }
