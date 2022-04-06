@@ -1,3 +1,6 @@
+// Define DOM elements to manipulate webpage
+const bookcase = document.querySelector("div.bookcase");
+
 const book1 = new Book("Harry Potter", "J.K. Rowling", "233", true);
 const book2 = new Book("The Principles of Object-Oriented JavaScript", "Nicolas C. Zakas", 122, false);
 
@@ -5,6 +8,9 @@ let myLibrary = [
   book1,
   book2
 ];
+
+// Fill bookcase with books that are already in bookcase
+populateBookcase();
 
 function Book(title, author, pages, read) {
   this.title = title
@@ -25,8 +31,12 @@ function addBookToLibrary() {
   myLibrary.push(book);
 }
 
-// Define DOM elements to manipulate webpage
-const bookcase = document.querySelector("div.bookcase");
+
+function populateBookcase() {
+  for (book in myLibrary) {
+    writeBookToPage(myLibrary[book]);
+  }
+}
 
 function writeBookToPage(book) {
   let bookElement = document.createElement("div");
