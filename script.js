@@ -24,3 +24,35 @@ function addBookToLibrary() {
   const book = new Book(title, author, pages, read);
   myLibrary.push(book);
 }
+
+// Define DOM elements to manipulate webpage
+const bookcase = document.querySelector("div.bookcase");
+
+function writeBookToPage(book) {
+  let bookElement = document.createElement("div");
+  bookElement.classList.add("book");
+  // store all attributes for book in separate elements
+  const title = document.createElement("h2");
+  title.innerText = `${book.title}`;
+  const byLine = document.createElement("p");
+  byLine.innerText = "by";
+  const author = document.createElement("h3");
+  author.innerText = `${book.author}`;
+  const pages = document.createElement("p");
+  pages.innerText = `${book.pages} pages`;
+  const readStatus = document.createElement("p");
+  if (book.read) {
+    readStatus.innerText = "Read book"
+  } else {
+    readStatus.innerText = "Not read yet" 
+  }
+  // append those elements as child to div
+  bookElement.appendChild(title);
+  bookElement.appendChild(byLine);
+  bookElement.appendChild(author);
+  bookElement.appendChild(pages);
+  bookElement.appendChild(readStatus);
+
+  // append completed book to bookcase
+  bookcase.appendChild(bookElement);
+}
