@@ -1,12 +1,25 @@
 // Define DOM elements to manipulate webpage
 const bookcase = document.querySelector("div.bookcase");
 const buttonAdd = document.querySelector("#buttonAddBooks");
+const modal = document.querySelector("div.modal");
+const closeBtn = document.querySelector("span.close");
 
-buttonAdd.addEventListener("click", addBookToLibrary);
+// Event listeners for displaying modal
+buttonAdd.addEventListener("click", () => modal.style.display = "block");
+closeBtn.addEventListener("click", () => modal.style.display = "none");
 
+// close modal when clicking outside modal
+window.addEventListener("click", (e) => {
+  if (e.target == modal) {
+    modal.style.display = "none";
+  }
+});
+
+// default books to put in library
 const book1 = new Book("Harry Potter", "J.K. Rowling", "233", true);
 const book2 = new Book("The Principles of Object-Oriented JavaScript", "Nicolas C. Zakas", 122, false);
 
+// array that contains all books
 let myLibrary = [
   book1,
   book2
@@ -15,6 +28,7 @@ let myLibrary = [
 // Fill bookcase with books that are already in bookcase
 populateBookcase();
 
+// object constructor for new books
 function Book(title, author, pages, read) {
   this.title = title
   this.author = author
@@ -25,6 +39,7 @@ function Book(title, author, pages, read) {
   }
 }
 
+// function to add new books to library, currently using prompts but to be rewritten
 function addBookToLibrary() {
   const title = prompt("What is the title of the book?", "title");
   const author = prompt("Who is the author of the book?", "author");
@@ -35,13 +50,14 @@ function addBookToLibrary() {
   writeBookToPage(myLibrary[0]);
 }
 
-
+// display all books in library array on page
 function populateBookcase() {
   for (book in myLibrary) {
     writeBookToPage(myLibrary[book]);
   }
 }
 
+// helper function to create DOM elements out of book-object
 function writeBookToPage(book) {
   let bookElement = document.createElement("div");
   bookElement.classList.add("book");
