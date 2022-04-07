@@ -12,7 +12,35 @@
   <div class="modal" id="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <p>This will become a form</p>
+      <form action="http://httpbin.org/post" method="post">
+
+        <div class="question">
+          <label for="title">Title</label>
+          <input type="text" name="title" id="title">
+        </div>
+        <div class="question">
+          <label for="author">Author</label>
+          <input type="text" name="author" id="author">
+        </div>
+        <div class="question">
+          <label for="pages"># of pages</label>
+          <input type="number" name="pages" id="pages">
+        </div>
+        <div class="question">
+          <p>Have you read the book?</p>
+          <div>
+            <div>
+              <input type="radio" name="readstatus" id="read" value="true">
+              <label for="read">I read the book</label>
+            </div>
+            <div>
+              <input type="radio" name="readstatus" id="notread" value="false">
+              <label for="notread">I haven't read the book yet</label>
+            </div>
+          </div>
+        </div>
+        <button type="submit">Add book</button>
+      </form>
     </div>
   </div>
   <h1>My Library</h1>
