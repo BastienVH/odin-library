@@ -3,6 +3,13 @@ const bookcase = document.querySelector("div.bookcase");
 const buttonAdd = document.querySelector("#buttonAddBooks");
 const modal = document.querySelector("div.modal");
 const closeBtn = document.querySelector("span.close");
+const submitBookBtn = document.querySelector("#submitBook");
+
+submitBookBtn.addEventListener("click", () => {
+  addBookToLibrary();
+  modal.style.display = "none";
+  document.getElementById("newBookForm").reset();
+});
 
 // Event listeners for displaying modal
 buttonAdd.addEventListener("click", () => modal.style.display = "block");
@@ -41,12 +48,16 @@ function Book(title, author, pages, read) {
 
 // function to add new books to library, currently using prompts but to be rewritten
 function addBookToLibrary() {
-  const title = prompt("What is the title of the book?", "title");
-  const author = prompt("Who is the author of the book?", "author");
-  const pages = prompt("How many pages are in the book?", "# of pages");
-  const read = prompt("Have you read the book?", "true/false");
-  const book = new Book(title, author, pages, read);
+  const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
+  const pages = document.getElementById("pages").value;
+  const readState = document.querySelector('input[name="readstatus"]:checked').value;
+  
+  // Create new book based on inputs
+  const book = new Book(title, author, pages, readState);
+  // Add new book to the start of the library array
   myLibrary.unshift(book);
+  // Add first book to page
   writeBookToPage(myLibrary[0]);
 }
 
