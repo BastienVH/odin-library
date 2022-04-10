@@ -55,23 +55,27 @@ function addBookToLibrary() {
   
   // Create new book based on inputs
   const book = new Book(title, author, pages, readState);
-  // Add new book to the start of the library array
-  myLibrary.unshift(book);
+  // Add new book to the end of the library array
+  myLibrary.push(book);
   // Add first book to page
-  writeBookToPage(myLibrary[0]);
+  writeBookToPage(book, myLibrary.length-1);
 }
 
 // display all books in library array on page
 function populateBookcase() {
   for (book in myLibrary) {
-    writeBookToPage(myLibrary[book]);
+    //add dataset attribute with value book
+    let bookNmb = book;
+    // also pass this value to next function call
+    writeBookToPage(myLibrary[book], book);
   }
 }
 
 // helper function to create DOM elements out of book-object
-function writeBookToPage(book) {
+function writeBookToPage(book, place) {
   let bookElement = document.createElement("div");
   bookElement.classList.add("book");
+  bookElement.dataset.place = place;
   // store all attributes for book in separate elements
   const title = document.createElement("h2");
   title.innerText = `${book.title}`;
