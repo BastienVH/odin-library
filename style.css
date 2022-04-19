@@ -28,6 +28,19 @@ body {
   box-shadow: 10px 6px 4px rgb(235, 235, 235);
 }
 
+.book#buttonAddBooks {
+  box-shadow: none;
+  background-color: #39779b;
+  border: 2px solid #2f6381;
+}
+
+.book#buttonAddBooks svg {
+  width: 20%;
+}
+
+.book#buttonAddBooks:hover {
+  cursor: pointer;
+}
 .modal {
   display: none;
   position: fixed;
