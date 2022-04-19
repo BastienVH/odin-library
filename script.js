@@ -23,6 +23,15 @@ window.addEventListener("click", (e) => {
 });
 
 // functionality for button to remove specific book
+// target bookcase
+bookcase.addEventListener("click", (e) => {
+  // get data-place of book where button was clicked
+  let target = event.target.closest("div.book");
+  // remove book from array
+  myLibrary.splice(target.dataset.place, 1);
+  // redraw book library
+  populateBookcase();
+});
 
 // default books to put in library
 const book1 = new Book("Harry Potter", "J.K. Rowling", "233", true);
