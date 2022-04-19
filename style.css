@@ -61,6 +61,20 @@ h3 {
 .book#buttonAddBooks:hover {
   cursor: pointer;
 }
+
+.book>button {
+  color: white;
+  font-weight: bold;
+  border: none;
+  background-color: #2f6381;
+  padding: 8px 16px;
+}
+
+.book>button:hover {
+  cursor: pointer;
+  background-color: rgb(238, 15, 15);
+}
+
 .modal {
   display: none;
   position: fixed;
