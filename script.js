@@ -22,17 +22,6 @@ window.addEventListener("click", (e) => {
   }
 });
 
-// functionality for button to remove specific book
-// target bookcase
-bookcase.addEventListener("click", (e) => {
-  // get data-place of book where button was clicked
-  let target = event.target.closest("div.book");
-  // remove book from array
-  myLibrary.splice(target.dataset.place, 1);
-  // remove book from DOM
-  bookcase.removeChild(target);
-});
-
 // default books to put in library
 const book1 = new Book("Harry Potter", "J.K. Rowling", "233", true);
 const book2 = new Book("The Principles of Object-Oriented JavaScript", "Nicolas C. Zakas", 122, false);
@@ -105,6 +94,17 @@ function writeBookToPage(book, place) {
   const removeBtn = document.createElement("button");
   removeBtn.innerText = "Remove book";
   removeBtn.classList.add = "remove";
+
+  // functionality for button to remove specific book
+  removeBtn.addEventListener("click", (e) => {
+  // get data-place of book where button was clicked
+  let target = event.target.closest("div.book");
+  // remove book from array
+  myLibrary.splice(target.dataset.place, 1);
+  // remove book from DOM
+  bookcase.removeChild(target);
+});
+
   // append those elements as child to div
   bookElement.appendChild(title);
   bookElement.appendChild(byLine);
