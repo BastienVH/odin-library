@@ -24,7 +24,6 @@ window.addEventListener("click", (e) => {
 
 // functionality for button to remove specific book
 
-
 // default books to put in library
 const book1 = new Book("Harry Potter", "J.K. Rowling", "233", true);
 const book2 = new Book("The Principles of Object-Oriented JavaScript", "Nicolas C. Zakas", 122, false);
@@ -106,5 +105,5 @@ function writeBookToPage(book, place) {
   bookElement.appendChild(removeBtn);
 
   // Add book to bookcase after buttonAdd, but before any existing books
-  bookcase.insertBefore(bookElement, buttonAdd.nextSibling);
+  bookcase.appendChild(bookElement);
 }
