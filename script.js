@@ -12,7 +12,11 @@ submitBookBtn.addEventListener("click", () => {
 });
 
 // Event listeners for displaying modal
-buttonAdd.addEventListener("click", () => modal.style.display = "block");
+buttonAdd.addEventListener("click", () => {
+  modal.style.display = "block";
+  //give focus to first input of modal
+  document.getElementById("title").focus();
+});
 closeBtn.addEventListener("click", () => modal.style.display = "none");
 
 // close modal when clicking outside modal
