@@ -23,8 +23,8 @@ window.addEventListener("click", (e) => {
 });
 
 // default books to put in library
-const book1 = new Book("Harry Potter", "J.K. Rowling", "233", true);
-const book2 = new Book("The Principles of Object-Oriented JavaScript", "Nicolas C. Zakas", 122, false);
+const book1 = new Book("Harry Potter", "J.K. Rowling", "233", "true");
+const book2 = new Book("The Principles of Object-Oriented JavaScript", "Nicolas C. Zakas", 122, "false");
 
 // array that contains all books
 let myLibrary = [
@@ -86,9 +86,9 @@ function writeBookToPage(book, place) {
   const pages = document.createElement("p");
   pages.innerText = `${book.pages} pages`;
   const readStatus = document.createElement("p");
-  if (book.read) {
+  if (book.read == "true") {
     readStatus.innerText = "Read book"
-  } else {
+  } else if (book.read == "false") {
     readStatus.innerText = "Not read yet" 
   }
   const removeBtn = document.createElement("button");
