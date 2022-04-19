@@ -29,8 +29,11 @@ h3 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-auto-rows: 1fr;
-  border-radius: 5px;
   width: 95%;
+  background-color: rgb(153, 78, 33);
+  border: 26px solid rgb(139, 70, 28);
+  border-left-color: rgb(101, 51, 21);
+  border-right-color: rgb(101, 51, 21);
 }
 
 .book {
@@ -45,7 +48,7 @@ h3 {
   color: white;
   background-color: #4c9fce;
   border-left: 4px solid #39779b;
-  box-shadow: 10px 6px 4px rgb(235, 235, 235);
+  box-shadow: 10px 6px 4px rgb(88, 40, 40);
 }
 
 .book#buttonAddBooks {
