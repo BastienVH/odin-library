@@ -49,7 +49,7 @@ function Book(title, author, pages, read) {
   }
 }
 
-// function to add new books to library, currently using prompts but to be rewritten
+// function to add new books to library
 function addBookToLibrary() {
   const title = document.getElementById("title").value;
   const author = document.getElementById("author").value;
