@@ -29,8 +29,8 @@ bookcase.addEventListener("click", (e) => {
   let target = event.target.closest("div.book");
   // remove book from array
   myLibrary.splice(target.dataset.place, 1);
-  // redraw book library
-  populateBookcase();
+  // remove book from DOM
+  bookcase.removeChild(target);
 });
 
 // default books to put in library
