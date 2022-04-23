@@ -90,15 +90,10 @@ function writeBookToPage(book, place) {
   const pages = document.createElement("p");
   pages.innerText = `${book.pages} pages`;
   const readStatus = document.createElement("p");
-  if (book.read == "true") {
-    readStatus.innerText = "Read book"
-  } else if (book.read == "false") {
-    readStatus.innerText = "Not read yet" 
-  }
   const removeBtn = document.createElement("button");
   removeBtn.innerText = "Remove book";
   removeBtn.classList.add = "remove";
-
+  
   // functionality for button to remove specific book
   removeBtn.addEventListener("click", (e) => {
   // get data-place of book where button was clicked
@@ -107,9 +102,11 @@ function writeBookToPage(book, place) {
   myLibrary.splice(target.dataset.place, 1);
   // remove book from DOM
   bookcase.removeChild(target);
-});
+  });
+  const checkbox = createReadCheckbox(book);
 
   // append those elements as child to div
+  bookElement.appendChild(checkbox);
   bookElement.appendChild(title);
   bookElement.appendChild(byLine);
   bookElement.appendChild(author);
@@ -119,4 +116,25 @@ function writeBookToPage(book, place) {
 
   // Add book to bookcase after buttonAdd, but before any existing books
   bookcase.appendChild(bookElement);
+}
+
+// function to return the correct checkbox, gets passed a book obj)
+
+function createReadCheckbox(book) {
+  // create a container div for the checkmark
+  const container = document.createElement("div");
+  container.classList.add("checkmark-container");
+  // create a div for the checkmark
+  const checkmark = document.createElement("div");
+  checkmark.classList.add("checkmark");
+  // check for this.read boolean
+  if (book.read == "true") {
+    checkmark.classList.add("read");
+  } else {
+    checkmark.classList.add("not-read");
+  }
+  // add checkmark as child element of container div
+  container.appendChild(checkmark);
+  // add container div to webpage
+  return container;
 }
