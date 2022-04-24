@@ -96,12 +96,12 @@ function writeBookToPage(book, place) {
   
   // functionality for button to remove specific book
   removeBtn.addEventListener("click", (e) => {
-  // get data-place of book where button was clicked
-  let target = event.target.closest("div.book");
-  // remove book from array
-  myLibrary.splice(target.dataset.place, 1);
-  // remove book from DOM
-  bookcase.removeChild(target);
+    // get data-place of book where button was clicked
+    let target = event.target.closest("div.book");
+    // remove book from array
+    myLibrary.splice(target.dataset.place, 1);
+    // remove book from DOM
+    bookcase.removeChild(target);
   });
   const checkbox = createReadCheckbox(book);
 
@@ -133,8 +133,33 @@ function createReadCheckbox(book) {
   } else {
     checkmark.classList.add("not-read");
   }
+  // add click function to toggle read state
+  container.addEventListener("click", toggleRead);
   // add checkmark as child element of container div
   container.appendChild(checkmark);
   // add container div to webpage
   return container;
+}
+
+function toggleRead(event) {
+  // check which book to flip read state
+  const target = event.target.closest("div.book");
+  // read array index of target
+  const index = target.dataset.place;
+  // store checkmark in variable
+  const checkmark = event.target.closest("div.checkmark");
+  // change state in array and on page
+  if (myLibrary[index].read == "true") {
+    // toggle value of target book in array at index
+    myLibrary[index].read = "false";
+    // change class in DOM
+    checkmark.classList.remove("read");
+    checkmark.classList.add("not-read");
+  } else {
+    // toggle value of target book in array at index
+    myLibrary[index].read = "true";
+    // change class in DOM
+    checkmark.classList.remove("not-read");
+    checkmark.classList.add("read");
+  }
 }

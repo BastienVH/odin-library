@@ -93,17 +93,17 @@ h3 {
 
 .checkmark {
   position: relative;
-  width: 20px;
-  height: 20px;
+  width: 50px;
+  height: 50px;
   display: block;
 }
 
 
 .checkmark::before {
   position: absolute;
-  left: 20px;
-  top: 70%;
-  height: 50%;
+  left: 22px;
+  top: 22%;
+  height: 30%;
   width: 4px;
   content: "";
   transform: translateX(10px) rotate(-45deg);
@@ -112,10 +112,10 @@ h3 {
 
 .checkmark::after {
   position: absolute;
-  left: 20px;
-  bottom: -20%;
+  left: 22px;
+  bottom: 48%;
   height: 4px;
-  width: 100%;
+  width: 48%;
   content: "";
   transform: translateX(10px) rotate(-45deg);
   transform-origin: left bottom;
