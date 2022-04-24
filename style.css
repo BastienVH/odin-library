@@ -67,6 +67,8 @@ h3 {
 }
 
 .book>button {
+  position: absolute;
+  bottom: .5rem;
   color: white;
   font-weight: bold;
   border: none;
