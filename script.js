@@ -100,8 +100,9 @@ function writeBookToPage(book, place) {
     let target = event.target.closest("div.book");
     // remove book from array
     myLibrary.splice(target.dataset.place, 1);
-    // remove book from DOM
-    bookcase.removeChild(target);
+    //empty out the library and put new array on page
+    removeAllBooks();
+    populateBookcase();
   });
   const checkbox = createReadCheckbox(book);
 
@@ -161,5 +162,11 @@ function toggleRead(event) {
     // change class in DOM
     checkmark.classList.remove("not-read");
     checkmark.classList.add("read");
+  }
+}
+
+function removeAllBooks() {
+  while (bookcase.children[1]) {
+    bookcase.removeChild(bookcase.children[1]);
   }
 }
