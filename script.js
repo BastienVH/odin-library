@@ -95,15 +95,7 @@ function writeBookToPage(book, place) {
   removeBtn.classList.add = "remove";
   
   // functionality for button to remove specific book
-  removeBtn.addEventListener("click", (e) => {
-    // get data-place of book where button was clicked
-    let target = event.target.closest("div.book");
-    // remove book from array
-    myLibrary.splice(target.dataset.place, 1);
-    //empty out the library and put new array on page
-    removeAllBooks();
-    populateBookcase();
-  });
+  removeBtn.addEventListener("click", removeBook);
   const checkbox = createReadCheckbox(book);
 
   // append those elements as child to div
@@ -120,7 +112,6 @@ function writeBookToPage(book, place) {
 }
 
 // function to return the correct checkbox, gets passed a book obj)
-
 function createReadCheckbox(book) {
   // create a container div for the checkmark
   const container = document.createElement("div");
@@ -169,4 +160,14 @@ function removeAllBooks() {
   while (bookcase.children[1]) {
     bookcase.removeChild(bookcase.children[1]);
   }
+}
+
+function removeBook(event) {
+  // get data-place of book where button was clicked
+  let target = event.target.closest("div.book");
+  // remove book from array
+  myLibrary.splice(target.dataset.place, 1);
+  //empty out the library and put new array on page
+  removeAllBooks();
+  populateBookcase();
 }
