@@ -104,7 +104,7 @@ h3 {
 .checkmark::before {
   position: absolute;
   left: 22px;
-  top: 22%;
+  top: 10px;
   height: 30%;
   width: 4px;
   content: "";
@@ -115,7 +115,7 @@ h3 {
 .checkmark::after {
   position: absolute;
   left: 22px;
-  bottom: 48%;
+  bottom: 25px;
   height: 4px;
   width: 48%;
   content: "";
