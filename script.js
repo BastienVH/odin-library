@@ -5,6 +5,18 @@ const modal = document.querySelector("div.modal");
 const closeBtn = document.querySelector("span.close");
 const submitBookBtn = document.querySelector("#submitBook");
 
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+  read() {
+    return `${title} by ${author},  ${pages}, ${read}`
+  }
+}
+
 submitBookBtn.addEventListener("click", () => {
   addBookToLibrary();
   modal.style.display = "none";
@@ -38,17 +50,6 @@ let myLibrary = [
 
 // Fill bookcase with books that are already in bookcase
 populateBookcase();
-
-// object constructor for new books
-function Book(title, author, pages, read) {
-  this.title = title
-  this.author = author
-  this.pages = pages
-  this.read = read
-  this.info = function() {
-    return `${title} by ${author}, ${pages} pages, ${read}`
-  }
-}
 
 // function to add new books to library
 function addBookToLibrary() {
